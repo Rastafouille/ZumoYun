@@ -1,0 +1,114 @@
+<html>
+<head>
+<title>Bridge</title>
+
+
+ <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=2.0, user-scalable=yes">
+  <link rel="stylesheet" href="jquery.mobile-1.0.min.css" />
+  <link rel="stylesheet" href="parametre.css" />
+  <script src="jquery-1.6.4.min.js"></script>
+  <script src="jquery.mobile-1.0.min.js"></script>
+ 
+
+<script>
+
+function checkRest()
+{
+  var xmlhttp;
+  if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+  }
+  else
+  {// code for IE6, IE5
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  xmlhttp.onreadystatechange=function()
+  {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+      document.getElementById("on").disabled=(xmlhttp.responseText.substr(xmlhttp.responseText.length - 3,1)=='1');
+      document.getElementById("off").disabled=(xmlhttp.responseText.substr(xmlhttp.responseText.length - 3,1)=='0');
+    }
+  }
+  //url="/arduino/analog/"+document.getElementById("pin").value;
+  xmlhttp.open("GET",url,true);
+  xmlhttp.send();
+}
+
+  function launchRest(num_bouton)
+{
+  var vitesse=document.getElementById("vitesse").value;
+  var dif_vitesse=document.getElementById("dif_vitesse").value;
+  var xmlhttp;
+  if (window.XMLHttpRequest)
+  // code for IE7+, Firefox, Chrome, Opera, Safari
+  {xmlhttp=new XMLHttpRequest();}
+  else// code for IE6, IE5
+  {xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}
+  xmlhttp.onreadystatechange=function()
+  {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {document.getElementById("reply").innerHTML=xmlhttp.responseText;}
+  }
+
+  url="/arduino/"+vitesse+"/"+dif_vitesse+"/"+num_bouton;
+  xmlhttp.open("GET",url,true);
+  xmlhttp.send();
+  setTimeout(function() {checkRest();}, 150);
+  
+}
+
+function refresh() {
+        var unique = new Date();
+        
+		//document.images.Image.src = "http://132.169.195.217:8080/?action=stream" + unique.getTime(); //eth
+		//document.images.stream.src = "http://arduino.local:8080/?action=stream"+ unique.getTime();  //wlan
+		document.images.stream.src = "http://192.168.240.1:8080/?action=stream"+ unique.getTime();  //wlan
+		//document.images.stream.src = "http://192.168.1.3:8080/?action=stream"+ unique.getTime(); //sur reseau cabanon
+		//document.images.stream.src = "http://89.86.63.111:8080/?action=snapshot"+ unique.getTime(); //box cabanon
+}
+window.onload = function (){
+       setInterval("refresh()", 100);
+}
+
+
+</script>
+</head>
+<body onload="checkRest()">
+<center>
+<FORM>
+<label for="vitesse"><center><b><big>Vitesse :</b></big></center></label>
+<b><input type="range" name="slider" id="vitesse" value="150" min="0" max="400"/></b>
+<br/>
+<label for="dif_vitesse"><center><b><big>Difference de Vitesse :</b></big></center></label>
+<b><input type="range" name="slider" id="dif_vitesse" value="50" min="0" max="100"/></b>
+</FORM>
+
+
+<b><a data-role="button"id="avant_gauche" onclick="launchRest(1);" data-inline="true" data-mini="true"><img src="haut1.png"></a>
+<a data-role="button"id="tout_droit" onclick="launchRest(2);" data-inline="true"data-mini="true"><img src="haut2.png"></a>
+<a data-role="button"id="avant_droit" onclick="launchRest(3);" data-inline="true"data-mini="true"><img src="haut3.png"></a></b>
+<br/>
+<b>
+<a data-role="button"id="demi_tour_gauche" onclick="launchRest(4);" data-inline="true"data-mini="true"><img src="milieu1.png"></a>
+<a data-role="button"id="stop" onclick="launchRest(5);" data-inline="true"data-mini="true"><img src="milieu2.png"></a>
+<a data-role="button"id="demi_tour_droite" onclick="launchRest(6);" data-inline="true"data-mini="true"><img src="milieu3.png"></a></b>
+<br/>
+<b><a data-role="button"id="arriere_gauche" onclick="launchRest(7);" data-inline="true"data-mini="true"><img src="bas1.png"></a>
+<a data-role="button"id="arriere" onclick="launchRest(8);" data-inline="true"data-mini="true"><img src="bas2.png"></a>
+<a data-role="button"id="arriere_droite" onclick="launchRest(9);" data-inline="true"data-mini="true"><img src="bas3.png"></a></b>
+<br/>
+<a data-role="button"id="klaxon" onclick="launchRest(10);" data-inline="true"data-mini="true"><img src="klaxon.png"></a></b>
+
+<div id=reply></div>
+<!-- <img id="stream" src="http://89.86.63.111:8080/?action=snapshot"/>
+<img id="stream" src="http://192.168.1.3:8080/?action=stream"/>
+<img id="stream" src="http://arduino.local:8080/?action=stream"/>  -->
+
+<img id="stream" src="http://192.168.240.1:8080/?action=stream"/> 
+
+</body>
+</center>
+</html>
