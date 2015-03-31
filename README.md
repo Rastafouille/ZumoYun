@@ -66,6 +66,7 @@ Une fois les packages installés nous allons faire en sorte que le streamer se l
 - Fermer et sauvegarder le fichier :
 	- Echap puis `:wq`
 	- Puis `chmod +x S999lancement_video`
+
 Le stream vidéo sera maintenant accessible sur le port 8080 de la carte Yun
 
 ##Coté Arduino
