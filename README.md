@@ -23,14 +23,14 @@ Ce tuto permet de réaliser un petit robot à chenilles type « sumo », pilot
 - Mettez en place les 4 piles et positionner l’interrupteur du shield ZUMO sur « ON ».
 - Attention, pour l’utilisation du buzzer avec une carte Yun (ATmega32u4) le « buzzer control jumper » doit être sur 32U4.
  
-![alt text](https://github.com/Rastafouille/ZumoYun/raw/master/galerie/ZumoYunv1.png)
+![alt text](https://github.com/Rastafouille/ZumoYun/raw/master/Galerie/ZumoYunv1.png)
 
 
 ##Coté YUN
 Une fois la Yun alimentée, branchez un câble RJ45 entre celle-ci est votre box. Se connecter en SSH (putty.exe ou autre) à la YUN, adresse : <http://arduino.local>, login : `root`, mot de passe : `arduino`. De cette manière votre Yun sera connectée à Internet et sera accessible par votre ordinateur.
 
 Se connecter en SSH (putty.exe ou autre) à la YUN, adresse : <http://arduino.local> ou <http://192.168.240.1>, login :`root`, mot de passe : `arduino`.
-![alt text](https://github.com/Rastafouille/ZumoYun/raw/master/galerie/linino.png)
+![alt text](https://github.com/Rastafouille/ZumoYun/raw/master/Galerie/linino.png)
 
 ###Installation package de base :
 	opkg update
@@ -90,10 +90,10 @@ Une fois connecté en wifi à la carte Yun, ouvrez la page :
 - <http://192.168.240.1/ZumoYunHTML> si le dossier « ZumoYunHTML » est sur la carte Yun (/www)
 A la première connexion, l’explorateur internet vous demandera un code : arduino.
 Enjoy !!
-![alt text](https://github.com/Rastafouille/ZumoYun/raw/master/galerie/interfaceHTML.png)
+![alt text](https://github.com/Rastafouille/ZumoYun/raw/master/Galerie/interfaceHTML.png)
 
 ##Finition
 En utilisant les fichiers de modèle 3D vous pouvez réaliser en impression 3D les 3 pièces Capot-Sup, Capot-Inf et Lame comme ci-dessous :
-![alt text](https://github.com/Rastafouille/ZumoYun/raw/master/galerie/vue3D.png)
-![alt text](https://github.com/Rastafouille/ZumoYun/raw/master/galerie/photo.png)
+![alt text](https://github.com/Rastafouille/ZumoYun/raw/master/Galerie/vue3D.png)
+![alt text](https://github.com/Rastafouille/ZumoYun/raw/master/Galerie/photo.png)
 
