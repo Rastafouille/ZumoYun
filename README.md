@@ -57,15 +57,15 @@ Se connecter en SSH (putty.exe ou autre) à la YUN, adresse : <http://arduino.l
 
 ###Configuration vidéo :
 Une fois les packages installés nous allons faire en sorte que le streamer se lance dès le démarrage de la Yun. Pour cela il faut insérer la ligne de démarrage du streamer dans un fichier de config.
-Dans le dossier :
+- Dans le dossier :
 	`cd /etc/rc.d`
-Créer et ouvrir un nouveau fichier :
+- Créer et ouvrir un nouveau fichier :
 	`vim S999lancement_video` 
-Y écrire la ligne suivante :
+- Y écrire la ligne suivante :
 	`mjpg_streamer -i "input_uvc.so -d /dev/video0 -r 640x480 -f 25" -o "output_http.so -p 8080 -w /www/webcam" &`
-Fermer et sauvegarder le fichier :
-	Echap puis `:wq`
-	Puis `chmod +x S999lancement_video`
+- Fermer et sauvegarder le fichier :
+	- Echap puis `:wq`
+	- Puis `chmod +x S999lancement_video`
 Le stream vidéo sera maintenant accessible sur le port 8080 de la carte Yun
 
 ##Coté Arduino
