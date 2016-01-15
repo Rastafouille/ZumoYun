@@ -1,0 +1,28 @@
+ISO-10303-21;
+HEADER;
+FILE_DESCRIPTION (( 'STEP AP214' ),
+    '1' );
+FILE_NAME ('lame v4.STEP',
+    '2016-01-15T15:21:01',
+    ( '' ),
+    ( '' ),
+    'SwSTEP 2.0',
+    'SolidWorks 2015',
+    '' );
+FILE_SCHEMA (( 'AUTOMOTIVE_DESIGN' ));
+ENDSEC;
+
+DATA;
+#1 = PRODUCT_DEFINITION ( 'UNKNOWN', '', #6, #9 ) ;
+#2 = PRODUCT_DEFINITION_SHAPE ( 'NONE', 'NONE',  #1 ) ;
+#3 = APPLICATION_CONTEXT ( 'automotive_design' ) ;
+#4 = APPLICATION_PROTOCOL_DEFINITION ( 'draft international standard', 'automotive_design', 1998, #10 ) ;
+#5 = PRODUCT ( 'lame v4', 'lame v4', '', ( #7 ) ) ;
+#6 = PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE ( 'ANY', '', #5, .NOT_KNOWN. ) ;
+#7 = PRODUCT_CONTEXT ( 'NONE', #10, 'mechanical' ) ;
+#8 = PRODUCT_RELATED_PRODUCT_CATEGORY ( 'part', '', ( #5 ) ) ;
+#9 = PRODUCT_DEFINITION_CONTEXT ( 'detailed design', #3, 'design' ) ;
+#10 = APPLICATION_CONTEXT ( 'automotive_design' ) ;
+#11 = APPLICATION_PROTOCOL_DEFINITION ( 'draft international standard', 'automotive_design', 1998, #3 ) ;
+ENDSEC;
+END-ISO-10303-21;
